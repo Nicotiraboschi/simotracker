@@ -73,7 +73,7 @@ const Line: React.FC<LineProps> = ({ item, port, numberItem }) => {
       case 'rosso':
         return 'red';
       case 'marrone':
-        return 'brown';
+        return '#5D4037'; // Marrone più scuro
       case 'blue':
         return 'blue';
       case 'viola':
