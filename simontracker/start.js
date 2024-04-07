@@ -1,14 +1,18 @@
 const { spawn } = require('child_process');
 const path = require('path');
 
-// Avvia il server Node.js
-const serverProcess = spawn('node', ['server.js'], {
+// Define absolute paths
+const serverFilePath = path.join(__dirname, 'server', 'server.js');
+const simontrackerFolderPath = __dirname;
+
+// Start the Node.js server
+const serverProcess = spawn('node', [serverFilePath], {
   stdio: 'inherit',
-  cwd: path.join(__dirname, 'server'), // Imposta il percorso corrente sulla directory server
+  cwd: path.join(__dirname, 'server'),
 });
 
-// Avvia l'applicazione Electron
+// Start the Electron application
 const electronProcess = spawn('npm', ['run', 'dev'], {
   stdio: 'inherit',
-  cwd: __dirname, // Percorso corrente (cartella simontracker)
+  cwd: simontrackerFolderPath,
 });
